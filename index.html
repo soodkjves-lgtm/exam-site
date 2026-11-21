@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Кофейня Aroma - свежий кофе и уютная атмосфера">
+    <title>Aroma — Кофейня</title>
+    <style>
+        :root {
+            --brown: #3f291f;
+            --coffee: #6f4e37;
+            --cream: #f8f1e7;
+            --gold: #c99a63;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--brown);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            color: var(--white);
+        }
+
+        nav {
+            min-height: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            background:
+                linear-gradient(rgba(28, 17, 12, 0.62), rgba(28, 17, 12, 0.62)),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 620px;
+            padding-top: 60px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 12px 0 18px;
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1;
+        }
+
+        .hero p {
+            max-width: 520px;
+            margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            border: 2px solid var(--gold);
+            background: var(--gold);
+            color: var(--brown);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: clamp(34px, 5vw, 48px);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 12px 30px rgba(63, 41, 31, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 22px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+        }
+
+        .price {
+            color: var(--coffee);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about img {
+            width: 100%;
+            height: 430px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .about h2 {
+            margin: 10px 0 20px;
+            font-size: clamp(36px, 5vw, 52px);
+        }
+
+        .about p {
+            margin-bottom: 18px;
+            font-family: Arial, sans-serif;
+        }
+
+        .contact {
+            background: var(--brown);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 15px;
+            font-size: clamp(36px, 5vw, 50px);
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 35px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer {
+            padding: 22px 0;
+            background: #2e1e16;
+            color: #d9cabc;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: min(100% - 28px, 1120px);
+            }
+
+            nav {
+                min-height: 72px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .cards,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                gap: 35px;
+            }
+
+            .about img {
+                height: 320px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 22px;
+            }
+
+            .nav-links li:nth-child(2),
+            .nav-links li:nth-child(3) {
+                display: none;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container" aria-label="Главное меню">
+            <a class="logo" href="#top">AROMA</a>
+            <ul class="nav-links">
+                <li><a href="#menu">Меню</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="eyebrow">Кофейня в центре города</p>
+                    <h1>Кофе, который хочется вспомнить</h1>
+                    <p>Свежая обжарка, нежная выпечка и спокойная атмосфера для важных встреч и маленьких пауз.</p>
+                    <a class="button" href="#menu">Посмотреть меню</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <p class="eyebrow" style="text-align: center;">Наши хиты</p>
+                <h2 class="section-title">Попробуйте любимые напитки</h2>
+                <div class="cards">
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80" alt="Латте">
+                        <div class="card-content">
+                            <h3>Классический латте</h3>
+                            <span class="price">220 ₽</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a56?auto=format&fit=crop&w=700&q=80" alt="Капучино">
+                        <div class="card-content">
+                            <h3>Карамельный капучино</h3>
+                            <span class="price">240 ₽</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Холодный кофе">
+                        <div class="card-content">
+                            <h3>Айс-латте</h3>
+                            <span class="price">260 ₽</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about">
+                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=80" alt="Интерьер кофейни Aroma">
+                <div>
+                    <p class="eyebrow">Немного о нас</p>
+                    <h2>Место для приятных мгновений</h2>
+                    <p>Aroma — это небольшая городская кофейня, где мы готовим кофе с вниманием к каждой детали.</p>
+                    <p>Зерна отбирают партнеры-обжарщики, молоко мы выбираем у местных производителей, а десерты готовим каждый день.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contacts">
+            <div class="container">
+                <p class="eyebrow">Ждём вас в гости</p>
+                <h2>Ваше любимое место уже готово</h2>
+                <p>Ежедневно с 8:00 до 22:00</p>
+                <div class="contact-details">
+                    <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                    <span>ул. Кофейная, 10</span>
+                    <a href="mailto:hello@aroma.coffee">hello@aroma.coffee</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Кофейня Aroma
+    </footer>
+</body>
+</html>
